@@ -18,13 +18,13 @@ git_custom_status() {
 
 #Customized k8s context
 kubernetes_context() {
-	echo "%{$fg_bold[red]%}[k8s:$(kubectl config current-context)]%{$reset_color%}"
+	echo "%{$fg_bold[red]%}[$(kubectl config current-context):$(kubectl config view --minify --output 'jsonpath={..namespace}')]%{$reset_color%}"
 }
 # RVM component of prompt
 ZSH_THEME_RVM_PROMPT_PREFIX="%{$fg[red]%}["
 ZSH_THEME_RVM_PROMPT_SUFFIX="]%{$reset_color%}"
 
 # Combine it all into a final right-side prompt
-RPS1='$(git_custom_status)$(kubernetes_context)[%D{%F} %*] $EPS1'
+RPS1='$(git_custom_status)[%D{%F} %*] $EPS1'
 
-PROMPT='%{$fg[cyan]%}[%~% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
+PROMPT='%{$fg[cyan]%}[%~% ]$(kubernetes_context)%{$fg[green]%}%B$%b '
