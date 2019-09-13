@@ -28,3 +28,13 @@ ZSH_THEME="zsh-themes/tsotra"
 ...
 ```
 
+### Maivana (lightweight in Malagasy)
+![maivana screenshot](screenshots/maivana.png)
+
+#### Usage
+`~/.zshrc`
+```
+...
+ZSH_THEME="zsh-themes/maivana"
+...
+```
