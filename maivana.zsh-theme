@@ -28,6 +28,8 @@ kubernetes_context() {
 		[[ -z "$k8s_ns" ]] && echo "$k8s_context:(none)" || echo "$k8s_context:$k8s_ns" 
 	fi
 }
+
+local kubernetes_context_info='$(kubernetes_context)'
 # Prompt format:
 #
 # [TIME] using kubectx KUBECTX in DIRECTORY on git:BRANCH
@@ -40,7 +42,7 @@ kubernetes_context() {
 PROMPT="
 %{$fg[yellow]%}[%*] %{$reset_color%}\
 using kubectx \
-%{$terminfo[bold]$fg[red]%}$(kubernetes_context)%{$reset_color%} \
+%{$terminfo[bold]$fg[red]%}${kubernetes_context_info}%{$reset_color%} \
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${git_info} 
