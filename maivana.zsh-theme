@@ -29,7 +29,7 @@ kubernetes_context() {
 	fi
 }
 
-local kubernetes_context_info='$(kubernetes_context)'
+local kubernetes_context_info='$(kubernetes_context 2> /dev/null)'
 # Prompt format:
 #
 # [TIME] using kubectx KUBECTX in DIRECTORY on git:BRANCH
